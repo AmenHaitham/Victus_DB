@@ -15,15 +15,7 @@ CREATE TABLE Accounts (
     phone_num NVARCHAR(15),
     seller_account BIT DEFAULT 0
 );
---create offers table
-CREATE TABLE Offers (
-    offer_id INT IDENTITY(1,1) PRIMARY KEY,
-    title NVARCHAR(255) NOT NULL,
-    description NVARCHAR(255),
-    percentage INT NOT NULL,
-    product_id INT NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
+
 
 -- Create Sellers Table
 CREATE TABLE Sellers (
@@ -49,6 +41,16 @@ CREATE TABLE Images (
     product_id INT NOT NULL,
     image_data VARBINARY(MAX) NOT NULL,
     FOREIGN KEY (product_id) REFERENCES Products(product_id) ON DELETE CASCADE
+);
+
+--create offers table
+CREATE TABLE Offers (
+    offer_id INT IDENTITY(1,1) PRIMARY KEY,
+    title NVARCHAR(255) NOT NULL,
+    description NVARCHAR(255),
+    percentage INT NOT NULL,
+    product_id INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Add other tables and relationships as needed.
