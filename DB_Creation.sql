@@ -16,17 +16,19 @@ CREATE TABLE Accounts (
     seller_account BIT DEFAULT 0
 );
 --create offers table
-create table offers(
-tittle varchar(255) primary key,
-describe varchar(255),
-Percentage int,
-item int ,
-FOREIGN KEY (item) REFERENCES proudcts(product_id)
+CREATE TABLE Offers (
+    offer_id INT IDENTITY(1,1) PRIMARY KEY,
+    title NVARCHAR(255) NOT NULL,
+    description NVARCHAR(255),
+    percentage INT NOT NULL,
+    product_id INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
+
 -- Create Sellers Table
 CREATE TABLE Sellers (
     seller_id INT IDENTITY(1,1) PRIMARY KEY,
-    seller_name NVARCHAR(255) NOT NULL,
+    shop_name NVARCHAR(255) NOT NULL,
     email NVARCHAR(255) NOT NULL,
     FOREIGN KEY (email) REFERENCES Accounts(email)
 );
