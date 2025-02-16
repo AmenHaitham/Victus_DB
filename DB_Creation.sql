@@ -15,7 +15,14 @@ CREATE TABLE Accounts (
     phone_num NVARCHAR(15),
     seller_account BIT DEFAULT 0
 );
-
+--create offers table
+create table offers(
+tittle varchar(255) primary key,
+describe varchar(255),
+Percentage int,
+item int ,
+FOREIGN KEY (item) REFERENCES proudcts(product_id)
+);
 -- Create Sellers Table
 CREATE TABLE Sellers (
     seller_id INT IDENTITY(1,1) PRIMARY KEY,
